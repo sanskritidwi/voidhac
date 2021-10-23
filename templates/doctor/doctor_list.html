@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} meetMyDoctor | DoctorView {% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'patients/style.css' %}" type="text/css" />
+<link rel="stylesheet" href="{% static 'home/style.css' %}" type="text/css" />
+<style>
+.col-md-4 {
+    display: inline-block;
+    margin-left: -4px;
+}
+
+.col-md-4 img {
+    width: 100px;
+    height: 172px;
+    padding: 10px;
+}
+</style>
+{% endblock %}
+{% block content %}
+<header style="padding: 3px; background-color: #005EB1; color: white; width: 100%;">
+    <nav >
+        <div class="nav-wrapper navbar-style">
+            <a href="{% url 'home:index' %}"><img class="brand-logo" src="{% static 'icon/meetmyDoctor.png' %}"></a>
+            <ul id="nav-mobile" class="righthide-on-med-and-down" style="display: inline-flex;">
+                <li><a href="{% url 'accounts:login_page' %}" class="button" id="rcorners">Login/SignUp</a></li>
+            </ul>
+        </div>
+    </nav>
+</header> 
+<div class="container  my-4">
+    <div class="row">
+        {% for edit_profile in data %}
+        <div class="col-6 my-3">
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4" style=" text-align: left; padding-left: 1rem;">
+                        <img src="/media/{{edit_profile.thumbnail}}" style="width: 150px; height:150px; padding-left:0;">
+                        <span>{{edit_profile.name}}</span><br>
+                        <span><small class="text-muted">{{edit_profile.spec}}</small></span>
+                    </div>
+                    <div class="col-md-8" style=" text-align: left;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{edit_profile.hos_name}}</h5>
+                            <p class="card-text">Experience: {{edit_profile.experience}}<br>Fees:{{edit_profile.fee}}<br>Address: {{edit_profile.address}}<br>Time:{{edit_profile.time}}</p>
+                            <a href="{% url 'doctors:booking'%}" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,293 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} meetMyDoctor | Doctor Login {% endblock %}
+
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'home/style.css' %}" type="text/css" />
+  <style >
+      .checked {
+    color: orange;
+  }
+  
+  .textual {
+    position: absolute;
+    top:200px;
+    left: 50px;
+    font-family:Script MT;
+    font-size:40px;
+    text-align:center;
+  }
+  
+  .content {
+    border:2px groove aqua;
+    height:630px;
+    max-width:1200px;
+    margin: 30px 0px 0px 30px;
+  }
+  
+  .content1 {
+    background: darkturquoise;
+    padding: 10px;
+    height: 70px;
+    max-width:1200px;
+  }
+  
+  .content2 {
+    background: orange;
+    padding: 10px;
+    height: 70px;
+    max-width:95%;
+    margin: 30px 0px 0px 30px;
+  }
+  
+  html,body { 
+      height: 100%; 
+  }
+  
+  .global-container{
+      height:100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f5f5f5;
+  }
+  
+  form{
+      padding-top: 10px;
+      font-size: 14px;
+      margin-top: 30px;
+  }
+  
+  .card-title{ font-weight:300; }
+  
+  .btn{
+      font-size: 14px;
+      margin-top:20px;
+  }
+  
+  .login-form{ 
+      width:330px;
+      margin:20px;
+  }
+  
+  .sign-up{
+      text-align:center;
+      padding:20px 0 0;
+  }
+  
+  .alert{
+      margin-bottom:-30px;
+      font-size: 13px;
+      margin-top:20px;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+  
+  .container-fluid{
+      padding: 3% 15% 7%;
+  }
+  
+  .main-button{
+      font-size: 2rem;
+      padding: 2% 4% 2% 4%;
+      margin: 5% 3% 5% 0;
+      width: 150px;
+      height: 50px;
+  }
+  
+  /* Center website */
+  .main {
+    max-width: 1000px;
+    margin: auto;
+  }
+  
+  h1 {
+    font-size: 50px;
+    word-break: break-all;
+  }
+  
+  .row {
+    margin: 10px -16px;
+  }
+  
+  /* Add padding BETWEEN each column */
+  .row,
+  .row > .leftcolumn {
+    padding: 20px;
+  }
+  
+  /* The "show" class is added to the filtered elements */
+  .show {
+    display: block;
+  }
+  
+  
+  
+  /* Header/Blog Title */
+  .header {
+    padding: 5px;
+    font-size: 10px;
+    text-align: center;
+    background: pink;
+  }
+  
+  
+  
+  
+  /* Create two unequal columns that floats next to each other */
+  /* Left column */
+  .leftcolumn {   
+    float: left;
+    width: 33.3%;  
+  }
+  
+  /* Right column */
+  .rightcolumn {
+    float: left;
+    width: 25%;
+    padding-left: 20px;
+  }
+  
+  /* Fake image */
+  .fakeimg {
+    background-color: white;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  /* Add a card effect for articles */
+  .card {
+     background-color: white;
+     padding: 20px;
+     margin-top: 20px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {   
+      width: 100%;
+      padding: 0;
+    }
+  }
+  
+  @media (min-width: 768px){
+    .col-md-8 {
+      flex: 0 0 auto;
+      width: 66.6666666667%;
+      direction: rtl;
+          
+  }
+}
+
+  @media (min-width: 1200px){
+    .content {
+      max-width: 95%;
+  }
+     .content1 {
+         max-width: 100%;
+     }
+
+     .container {
+         max-width: 100%;
+     }
+
+    
+}
+
+  </style>
+{% endblock %}
+
+
+{% block content %}
+    <header style="padding: 3px; background-color: #005EB1; color: white; width: 100%;">
+    <nav >
+        <div class="nav-wrapper navbar-style">
+            <a href="{% url 'home:index' %}"><img class="brand-logo" src="{% static 'icon/meetmyDoctor.png' %}"></a>
+            <ul id="nav-mobile" class="righthide-on-med-and-down" style="display: inline-flex;">
+                <li><a href="{% url 'accounts:login_page' %}" class="button" id="rcorners">Login/SignUp</a></li>
+            </ul>
+        </div>
+    </nav>
+</header> 
+<!--div for upper border-->
+<div class="container-fluid" style="background-image:linear-gradient(to right,#6397EB,#2BF589);padding: 20px;height: 80px;">
+           <p style="font-size:28px;font-family: cursive;color: aliceblue;margin-top: 4px;">
+            Partner With Us</p>
+</div>
+<!--div for image and text-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <p class="textual" style="color:#63D0EB; width:100%;">Desperate to serve<br>your Services to<br>the People.
+            <p class="textual" style="color:#F28910; top:380px; width:100%;">Collaborate with Us</p>
+        </div>
+        <div class="col-md-8">
+           <img src="{% static 'icon/doctor/partner.jpg' %}" style="width:100%;height:100%;padding-left:100px;">
+        </div>
+    </div>
+</div>
+<!--div for form and box-->
+<div class="content">
+    <div class="content1">
+           <p style="font-size:28px;font-family: cursive;color: aliceblue;margin-top: 4px; max-width:1200px;">
+           List your practices on meetMyDoctor.....</p>
+    </div>
+    <form class="row " style="padding:0px 120px 30px 120px;" method ="post"enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="col-md-6">
+            <label for="inputname" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required pattern="/^[a-zA-Z]*+ [a-zA-Z]*+$/" title="Enter alphabets only">
+        </div>
+        <div class="col-md-6">
+            <label for="inputSpecialization" class="form-label">Specialization</label>
+            <input type="text" class="form-control" id="spec", name="spec" placeholder="Enter your specialization" required pattern="/[A-Z][a-z]*+[\,\]/" title="Enter alphabets only">
+        </div>
+        <div class="col-md-6">
+            <label for="inputaddress" class="form-label">Address</label>
+            <input type="text" class="form-control" id="address", name="address" placeholder="Enter your address" required>
+        </div>
+        <div class="col-md-6">
+            <label for="inputexperience" class="form-label">Experience</label>
+            <input type="text" class="form-control" id="experience" name="experience" placeholder="How much experience you have" required pattern="^([0-9 ][a-zA-Z ]*[a-zA-Z]*)" title="Enter alphanumeric values">
+        </div>
+        <div class="col-md-6">
+            <label for="inputphoneno" class="form-label">Phone No</label>
+            <input type="phone" class="form-control" id="phone_no", name="phone_no" placeholder="Enter your phone no" required pattern="/[0-9]*{10}/" title="Enter in the format xxxxxxxxx ">
+        </div>
+        <div class="col-md-6">
+            <label for="inputemail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email"  pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" title="Enter valid email address" required/>
+        </div>
+        <div class="col-12">
+            <label for="desc" class="form-label">Message</label>
+            <input type="text" class="form-control" id="desc" name="desc" placeholder="Message" required>
+        </div>
+        <div class="col-md-6">
+            <label for="exampleFormControlFile1" class="form-label">Medical Degree Certificate</label>
+            <input type="file" name="thumbnail" class="form-control-file" id="thumbnail" required/>
+        </div>
+        <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">Password</label>
+            <input type="password" class="form-control" id="inputPassword4" name="password" placeholder="Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Password should contain atleast 1 digit, 1 uppercase, 1 lowercase, minimum length 8">
+        </div>
+        <div class="col-12 text-center my-4">
+            <button type="submit" class="btn btn-outline-success" style="border: 2px solid black; border-radius:15px;width:200px;">Submit</button>
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}
+

@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} meetMyDotor | Profile {% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'home/style.css' %}" type="text/css" />
+<style>
+
+.row.content {height: 600px}
+
+/* Style the side navigation */
+.sidenav {
+  height: 100%;
+  width: 300px;
+  background-color: cadetblue;
+  overflow-x: hidden;
+}
+
+
+/* Side navigation links */
+.sidenav a {
+  color: black;
+  padding: 20px;
+  text-decoration: none;
+  display: block;
+  font-size: 22px;
+}
+
+/* Change color on hover */
+.sidenav a:hover {
+  background-color: white;
+  color: black;
+}
+
+@media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;} 
+    }
+</style>
+{% endblock %}
+{% block content %}
+
+    <header style="padding: 3px; background-color: #005EB1; color: white; width: 100%;">
+    <nav >
+        <div class="nav-wrapper navbar-style">
+            <a href="{% url 'home:index' %}"><img class="brand-logo" src="{% static 'icon/meetmyDoctor.png' %}"></a>
+            <ul id="nav-mobile" class="righthide-on-med-and-down" style="display: inline-flex;">
+                <li><a href="{% url 'home:index' %}" class="button" id="rcorners">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<div class="container-fluid">
+ <div class="row content">
+    <div class="col-sm-3 sidenav">
+      <a href="#">View Appointment</a>
+      <a href="{% url 'patients:patient_edit' %}">Edit Profile</a>
+      <a href="{% url 'patients:profile' %}">Change Password</a>
+      <a href="#">My Payment</a>
+      <a href="{% url 'patients:video call' %}">Join meeting</a>
+      <a href="#">My Prescription</a>
+    </div>
+      <div class="col-sm-9 my-4">
+     <h2>Change Password</h2>
+     <form class="row g-3 my-4" style="padding:0px 120px 30px 120px;" method ="post" action ="/partner with us">
+        {% csrf_token %}
+        <div class="col-md-8">
+            <label for="inputtitle" class="form-label">New Password</label>
+            <input type="text" class="form-control" id="Npass" name="Npass" placeholder="Enter new password" required pattern="/^[a-zA-Z]+ [a-zA-Z]+$/" title="Enter alphabets only">
+        </div>
+        <div class="col-md-8">
+            <label for="desc" class="form-label">Confirm Password</label>
+            <input type="text" class="form-control" id="Rpass" name="Rpass" placeholder="Retype password" required>
+        </div>
+        <div class="col-12 my-4">
+            <button type="submit" class="btn btn-outline-success" style="border: 2px solid black; border-radius:15px;width:100px;">Submit</button>
+        </div>
+     </form>
+   </div>
+ </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script >
+    
+function matchpass(){
+var firstpassword=document.f1.password.value;
+var secondpassword=document.f1.password2.value;
+
+if(firstpassword==secondpassword){
+return true;
+}
+else{
+alert("password must be same!");
+return false;
+}
+}
+
+</script>
+
+{% endblock %}

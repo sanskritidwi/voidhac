@@ -1,0 +1,219 @@
+ {% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} meetMyDoctor | Blog View {% endblock %}
+
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'home/style.css' %}" type="text/css" />
+<style >
+ 
+  
+  .container-fluid{
+      padding: 3% 15% 7%;
+  }
+  
+  .main-button{
+      font-size: 2rem;
+      padding: 2% 4% 2% 4%;
+      margin: 5% 3% 5% 0;
+      width: 150px;
+      height: 50px;
+  }
+  
+  /* Center website */
+  .main {
+    max-width: 1000px;
+    margin: auto;
+  }
+  
+  h1 {
+    font-size: 50px;
+    word-break: break-all;
+  }
+  
+  .row {
+    margin: 10px -16px;
+  }
+  
+  /* Add padding BETWEEN each column */
+  .row,
+  .row > .leftcolumn {
+    padding: 20px;
+  }
+  
+  /* The "show" class is added to the filtered elements */
+  .show {
+    display: block;
+  }
+  
+  
+  
+  
+  /* Create two unequal columns that floats next to each other */
+  /* Left column */
+  .leftcolumn {   
+    float: left;
+    width: 33.3%;  
+  }
+  
+  /* Right column */
+  .rightcolumn {
+    float: left;
+    width: 25%;
+    padding-left: 20px;
+  }
+  
+  /* Fake image */
+  .fakeimg {
+    background-color: white;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  /* Add a card effect for articles */
+  .card {
+     background-color: white;
+     padding: 20px;
+     margin-top: 20px;
+     height: 500px;
+     width: 400px;
+     text-align: left;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {   
+      width: 100%;
+      padding: 0;
+    }
+  }
+  
+  @media (min-width: 768px){
+    .col-md-8 {
+      flex: 0 0 auto;
+      width: 66.6666666667%;
+      direction: rtl;
+          
+  }
+}
+
+  @media (min-width: 1200px){
+    .content {
+      max-width: 95%;
+  }
+     .content1 {
+         max-width: 100%;
+     }
+
+     .container {
+         max-width: 100%;
+     }
+
+    
+}
+</style>
+{% endblock %}
+
+
+{% block content %}
+    <header style="padding: 3px; background-color: #005EB1; color: white; width: 100%;">
+    <nav >
+        <div class="nav-wrapper navbar-style">
+            <a href="{% url 'home:index' %}"><img class="brand-logo" src="{% static 'icon/meetmyDoctor.png' %}"></a>
+            <ul id="nav-mobile" class="righthide-on-med-and-down" style="display: inline-flex;">
+
+                <li><a href="{% url 'doctors:blog_view' %}">
+                        <p id="blogs">Blogs</p>
+           
+                <li><a href="{% url 'accounts:login_page' %}" class="button" id="rcorners">Login/SignUp</a></li>
+            </ul>
+        </div>
+    </nav>
+</header> 
+  <div class="container-fluid" style="background-image:linear-gradient(to right,#6397EB,#2BF589);padding: 20px;height: 80px;">
+           <center><p style="font-size:32px;font-family: cursive;color: aliceblue;margin-top: 4px;">
+            Explore the world of Healthcare through the Blogs</p></center>
+</div>
+<div class="row">
+   <div class="leftcolumn">
+      <div class="card">
+      <img src="{% static 'icon/Mask Group 1.png' %}" alt="Mountains" height="300" width="100%">
+       <br> <h3>Aryuvedic</h3>
+        <p style="font-size: 18px;">Aryuvedic medicines</p>
+        <a href="1.html" hreflang="en">Read More</a>
+      </div>
+   </div>
+    <div class="leftcolumn">
+      <div class="card">
+      <img src="{% static 'icon/Mask Group 2.png' %}" alt="Lights" height="300" width="100%">
+        <br><h3>Allopathy</h3>
+        <p style="font-size: 18px;">Allopathic medicine information</p>
+        <a href="https://meesho.com/blog/different-types-cupboards-you-need-your-house" hreflang="en">Read More</a>
+      </div>
+    </div>
+    <div class="leftcolumn">
+      <div class="card">
+      <img src="{% static 'icon/Mask Group 3.png' %}" alt="Nature" height="300" width="100%">
+       <br><h3>Homoepathic</h3>
+        <p style="font-size: 18px;">Homoepathic medicines information</p>
+        <a href="https://meesho.com/blog/different-types-cupboards-you-need-your-house" hreflang="en">Read More</a>
+      </div>
+    </div>
+       <div class="leftcolumn">
+      <div class="card">
+      <img src="{% static 'icon/Mask Group 1.png' %}" alt="Mountains" height="300" width="100%">
+       <br> <h3>Aryuvedic</h3>
+        <p style="font-size: 18px;">Aryuvedic medicines</p>
+        <a href="1.html" hreflang="en">Read More</a>
+      </div>
+   </div>
+    <div class="leftcolumn">
+      <div class="card">
+      <img src="{% static 'icon/Mask Group 2.png' %}" alt="Lights" height="300" width="100%">
+        <br><h3>Allopathy</h3>
+        <p style="font-size: 18px;">Allopathic medicine information</p>
+        <a href="https://meesho.com/blog/different-types-cupboards-you-need-your-house" hreflang="en">Read More</a>
+      </div>
+    </div>
+    <div class="leftcolumn">
+      <div class="card">
+      <img src="{% static 'icon/Mask Group 3.png' %}" alt="Nature" height="300" width="100%">
+       <br><h3>Homoepathic</h3>
+        <p style="font-size: 18px;">Homoepathic medicines information</p>
+        <a href="https://meesho.com/blog/different-types-cupboards-you-need-your-house" hreflang="en">Read More</a>
+      </div>
+    </div>
+       <div class="leftcolumn">
+      <div class="card">
+      <img src="{% static 'icon/Mask Group 1.png' %}" alt="Mountains" height="300" width="100%">
+       <br> <h3>Aryuvedic</h3>
+        <p style="font-size: 18px;">Aryuvedic medicines</p>
+        <a href="1.html" hreflang="en">Read More</a>
+      </div>
+   </div>
+    <div class="leftcolumn">
+      <div class="card">
+      <img src="{% static 'icon/Mask Group 2.png' %}" alt="Lights" height="300" width="100%">
+        <br><h3>Allopathy</h3>
+        <p style="font-size: 18px;">Allopathic medicine information</p>
+        <a href="https://meesho.com/blog/different-types-cupboards-you-need-your-house" hreflang="en">Read More</a>
+      </div>
+    </div>
+    <div class="leftcolumn">
+      <div class="card">
+      <img src="{% static 'icon/Mask Group 3.png' %}" alt="Nature" height="300" width="100%">
+       <br><h3>Homoepathic</h3>
+        <p style="font-size: 18px;">Homoepathic medicines information</p>
+        <a href="https://meesho.com/blog/different-types-cupboards-you-need-your-house" hreflang="en">Read More</a>
+      </div>
+    </div>
+{% endblock %}

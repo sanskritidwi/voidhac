@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% block title %} meetMyDotor | Blog {% endblock %}
+{% block style %}
+<style>
+
+.row.content {height: 600px}
+
+/* Style the side navigation */
+.sidenav {
+  height: 100%;
+  width: 300px;
+  background-color: cadetblue;
+  overflow-x: hidden;
+}
+
+
+/* Side navigation links */
+.sidenav a {
+  color: black;
+  padding: 20px;
+  text-decoration: none;
+  display: block;
+  font-size: 22px;
+}
+
+/* Change color on hover */
+.sidenav a:hover {
+  background-color: white;
+  color: black;
+}
+
+@media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;} 
+    }
+</style>
+{% endblock %}
+{% block content %}
+    <header style="padding: 3px; background-color: #005EB1; color: white; width: 100%;">
+    <nav >
+        <div class="nav-wrapper navbar-style">
+            <a href="{% url 'home:index' %}"><img class="brand-logo" src="{% static 'icon/meetmyDoctor.png' %}"></a>
+            <ul id="nav-mobile" class="righthide-on-med-and-down" style="display: inline-flex;">
+                <li><a href="{% url 'doctors:blog_view' %}">
+                        <p id="blogs">Blogs</p>
+            </ul>
+        </div>
+    </nav>
+</header>
+<div class="container-fluid">
+ <div class="row content">
+    <div class="col-sm-3 sidenav">
+      <a href="#">Schedule Appointment</a>
+      <a href="{% url 'doctors:edit_profile' %}">Edit Profile</a>
+      <a href="#">Change Password</a>
+      <a href="#">View Appointment</a>
+      <a href="#">Add Blogs</a>
+      <a href="#">Schedule meeting</a>
+    </div>
+
+   <div class="col-sm-9 my-4">
+     <h2>Schedule meeting </h2>
+     <p>To schedule meeting click on this link<a href="https://zoom.us/meetings">https://zoom.us/meetings</a></p>
+     
+   </div>
+ </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script type="text/javascript">
+(function() {
+    'use strict'
+    window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+                form.classList.add('was-validated')
+            }, false)
+        })
+    }, false)
+}())
+</script>
+<!-- Script for Image Validation -->
+<script type="text/javascript">
+function imageValidation() {
+    var fileInput = document.getElementById('thumbnail');
+    var filePath = fileInput.value;
+    var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+    if (!allowedExtensions.exec(filePath)) {
+        alert('Please upload file having extensions .jpeg, .jpg, .png or .gif only.');
+        fileInput.value = '';
+    }
+}
+</script>
+{% endblock %}

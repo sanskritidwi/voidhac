@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} meetMyDoctor | Home {% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'home/style.css' %}" type="text/css" />
+<style>
+
+
+a:link {
+  color: red;
+}
+
+
+
+   
+</style>
+{% endblock %}
+
+{% block content %}
+	
+ <header style="padding: 3px; background-color: #005EB1; color: white; width: 100%;">
+    <nav >
+        <div class="nav-wrapper navbar-style">
+            <a href="{% url 'home:index' %}"><img class="brand-logo" src="{% static 'icon/meetmyDoctor.png' %}"></a>
+            <ul id="nav-mobile" class="righthide-on-med-and-down" style="display: inline-flex;">
+
+                <li><a href="{% url 'doctors:blog_view' %}">
+                        <p id="blogs">Blogs</p>
+           
+                <li><a href="{% url 'accounts:login_page' %}" class="button" id="rcorners">Login/SignUp</a></li>
+            </ul>
+        </div>
+    </nav>
+</header> 
+
+    <div class="cover">
+        <div>
+        <h1>Finding a doctor was <br>never so easy!</h1><br>
+        <p> Search for the best practitioners near you<br> just in one click</p>
+        <form method="post" action="{% url 'doctors:doctor' %}">
+            {% csrf_token %}
+        <div class="wrap">
+            <div class="search">
+               <input type="text" class="searchTerm" name="search" placeholder="What are you looking for?">
+               <button type="submit" class="searchButton" style="width: 50%;">
+                 Search
+              </button>
+            </div>
+         </div>
+         </form>
+        </div>
+        <img src="{% static 'icon/caver img.jpg' %}" alt="cover img" id="coverimg" width="800" height="500">
+    </div>
+
+    
+    <h2 class="heads" style="margin-top: 60px;">We Bring to you cure that works for you</h2>
+   <hr style="width:50%; height: 5px; color: #00BF42; background-color:#00BF42; align: center; margin-left:25%;">
+  
+   <div style="margin: 20px;"  class="row2">
+    <div class="column2">
+      <img src="{% static 'icon/Mask Group 1.png' %}" alt="Ayurveda" style="width:100%">
+      <div class="titles1"><p>Ayurveda</p></div>
+    </div>
+    <div class="column2">
+      <img src="{% static 'icon/Mask Group 2.png' %}" alt="Homeopathy" style="width:100%">
+      <div class="titles1"><p>Homeopathy</p></div>
+    </div>
+    <div class="column2">
+      <img src="{% static 'icon/Mask Group 3.png' %}" alt="Allopathy" style="width:100%">
+      <div class="titles1"><p>Allopathy</p></div>
+    </div>
+  </div>  
+
+    <div class="boxed">
+        <div style="margin-left: 90px;">
+       <h1 style=" color:#FF444F; font-size: 40px; margin: 30px;">Are you a Doctor?</h1>
+       <h3 style="margin-bottom: 50px;">What we have to offer you</h3>
+       
+         <a href="{% url 'doctors:partner_with' %}" class="button2" style="text-decoration: none; color: white;">Partner with Us</a></div>
+         <div style="width:  500px;">
+         <p style="margin: 40px; font-size: 15px; font-style: ">1. List your practices online <br><br>2. Work Remotely<br><br> 3. Schedule appointments, make your day organised<br><br>4. Virtually connect with clients <br><br> 5. Keep sharing blogs</p></div>
+         <div >
+            <img src="{% static 'icon/Mask Group 4.png' %}" alt="img" height="250px" width="300px">
+         </div>
+        </div>
+
+
+{% endblock %}
+{% block scripts %}
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+AOS.init({
+    offset: 150,
+});
+</script>
+{% endblock %}
